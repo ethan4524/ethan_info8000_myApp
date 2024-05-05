@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome, {{ username }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Add custom styles */
+        .form-group {
+            display: flex;
+            align-items: center; /* Center items vertically */
+            justify-content: space-between; /* Spacing between label and input */
+        }
+
+        .form-group input[type="checkbox"] {
+            margin-left: 5px; /* Adjust margin to create space between label and checkbox */
+        }
+        .form-group label {
+            display: block; /* Display the label as a block element */
+            margin-bottom: 5px; /* Add space below the label */
+            text-align: left;
+            margin-right: 10px; 
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="centered-title">
+        <h1>Welcome, {{ username }}</h1>
+        <p>API Key:</p>
+        {% if api_key %}
+        <p>{{ api_key }}</p>
+        {% else %}
+        <p>No API Key found</p>
+        {% endif %}
+        <form action="/" method="GET">
+            <div class="button-container">
+                <button type="submit" class="action-button">Logout</button>
+            </div>
+        </form>
+    </div>
+    <div class="container">
+        
+        <div class="login-container report-container">
+            <div class="title-container">
+                <h2>Report</h2>
+            </div>
+            <form action="/report" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="api_key">API Key:</label>
+                    <input type="text" id="api_key" name="api_key">
+                </div>
+                <div class="form-group">
+                    <div class="button-container">
+                        <button type="button" onclick="getLocation()" class="action-button">Get Location</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="latitude">Latitude:</label>
+                    <input type="text" id="latitude" name="latitude">
+                </div>
+                <div class="form-group">
+                    <label for="longitude">Longitude:</label>
+                    <input type="text" id="longitude" name="longitude">
+                </div>
+                
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <input type="text" id="description" name="description">
+                </div>
+                <div class="form-group">
+                    <label for="file">File:</label>
+                    <input type="file" id="file" name="file">
+                </div>
+                <div class="button-container">
+                    <input type="submit" value="Report New File" class="action-button">
+                </div>
+            </form>
+        </div>
+        <div class="login-container view-data-container">
+            <form action="/data" method="GET">
+                <div class="title-container">
+                    <h2>View Data</h2>
+                </div>
+                <div class="form-group">
+                    <label for="outputType">Output Type:</label>
+                    <select id="outputType" name="outputType">
+                        <option value="html" selected>HTML</option>
+                        <option value="csv">CSV</option>
+                        <option value="json">JSON</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="startDate">Start Date:</label>
+                    <input type="date" id="startDate" name="startDate">
+                </div>
+                <div class="form-group">
+                    <label for="endDate">End Date:</label>
+                    <input type="date" id="endDate" name="endDate">
+                </div>
+                <label for="data_lat">Enter the GPS coordinates to filter reports from that specific location. Alternatively, click "Use My Location" to automatically set your position.</label>
+                <div class="form-group">
+                    <div class="button-container">
+                        <button type="button" onclick="useMyLocation()" class="action-button">Use My Location</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="data_lat">Lat:</label>
+                    <input type="text" id="data_lat" name="data_lat">
+                </div>
+                <div class="form-group">
+                    <label for="data_lon">Lng:</label>
+                    <input type="text" id="data_lon" name="data_lon">
+                </div>
+                <label for="data_lat">Enter a distance (in km) to check for reports. This represents a search radius around the coordinates entered above.</label>
+                <div class="form-group">
+                    <label for="dist">Dist:</label>
+                    <input type="text" id="dist" name="dist">
+                </div>
+                <label for="data_lat">Max: the maximum number of reports to display.</label>
+                <div class="form-group">
+                    <label for="max">Max:</label>
+                    <input type="text" id="max" name="max">
+                </div>
+                <div class="form-group">
+                    <label for="sort">Sort:</label>
+                    <select id="sort" name="sort">
+                        <option value="newest" selected>Newest to Oldest</option>
+                        <option value="oldest">Oldest to Newest</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="returnMap">Return Map</label>
+                    <input type="checkbox" id="returnMap" name="returnMap">
+                </div>
+                <div class="button-container">
+                    <input type="submit" value="View Data" class="action-button">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    function getLocation() {
+        const latitudeField = document.getElementById("latitude");
+        const longitudeField = document.getElementById("longitude");
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                latitudeField.value = position.coords.latitude;
+                longitudeField.value = position.coords.longitude;
+            });
+        } else { 
+            alert("Geolocation is not supported by this browser.");
+        }
+    }
+    function useMyLocation() {
+        const latitudeField = document.getElementById("data_lat");
+        const longitudeField = document.getElementById("data_lon");
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                latitudeField.value = position.coords.latitude;
+                longitudeField.value = position.coords.longitude;
+            });
+        } else { 
+            alert("Geolocation is not supported by this browser.");
+        }
+    }
+</script>

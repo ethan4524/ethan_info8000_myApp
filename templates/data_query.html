@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Query</title>
+</head>
+<body>
+    <h1>Data Query</h1>
+    <form action="/query_data" method="get">
+        <label for="output">Output:</label>
+        <select name="output" id="output">
+            <option value="html">HTML</option>
+            <option value="csv">CSV</option>
+            <option value="json">JSON</option>
+        </select>
+        <br>
+        <label for="start_date">Start Date:</label>
+        <input type="date" name="start_date" id="start_date">
+        <br>
+        <label for="end_date">End Date:</label>
+        <input type="date" name="end_date" id="end_date">
+        <br>
+        <label for="lat">Latitude:</label>
+        <input type="text" name="lat" id="lat">
+        <label for="lng">Longitude:</label>
+        <input type="text" name="lng" id="lng">
+        <label for="dist">Distance (km):</label>
+        <input type="text" name="dist" id="dist">
+        <br>
+        <label for="max">Max Reports:</label>
+        <input type="number" name="max" id="max">
+        <br>
+        <label for="sort">Sort:</label>
+        <select name="sort" id="sort">
+            <option value="newest">Newest</option>
+            <option value="oldest">Oldest</option>
+        </select>
+        <br>
+        <input type="submit" value="Query">
+    </form>
+</body>
+</html>

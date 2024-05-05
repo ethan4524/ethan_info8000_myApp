@@ -1,0 +1,66 @@
+<!-- data.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+    .container {
+        width: 80%; /* Limit the container width */
+        margin: 10px auto 0; /* Center the container and add top margin */
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #4CAF50;
+    }
+
+    tr:hover {
+        background-color: #767676;
+    }
+    </style>
+</head>
+<body>
+    <div class="centered-title">
+        <h1>Data</h1>
+    </div>
+    <div class="container">
+        <table>
+            <tr>
+                <th>User ID</th>
+                <th>Date Time</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Description</th>
+                <th>Filename</th>
+                <th>API Data Temperature</th>
+                <th>API Data Weather Code</th>
+            </tr>
+            {% for row in data %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td>{{ row[5] }}</td>
+                <td>{{ row[6] }}</td>
+                <td>{{ row[7] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

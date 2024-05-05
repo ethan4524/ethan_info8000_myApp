@@ -1,0 +1,239 @@
+/* styles.css */
+body {
+    font-family: "Comic Sans MS", cursive, sans-serif; /* Change font to Comic Sans MS */
+    margin: 0;
+    padding: 0;
+    background-color: #1f1f1f; /* Dark background color */
+    color: #fff; /* White text color */
+}
+.title-container {
+    text-align: center; /* Center align the title */
+    margin-bottom: 20px; /* Add some space below the title */
+}
+.login-container {
+    width: 300px;
+    margin: 0 auto; /* Center the container horizontally */
+    background-color: #333; /* Darker background color */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #555; /* Darker border color */
+    border-radius: 3px;
+    box-sizing: border-box;
+    background-color: #444; /* Darker input background color */
+    color: #fff; /* White text color */
+}
+input[type="submit"],
+input[type="button"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50; /* Green button color */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+input[type="submit"]:hover,
+input[type="button"]:hover {
+    background-color: #45a049; /* Darker green color on hover */
+}
+.register-button {
+    width: 100%; /* Make the button full width */
+    padding: 8px !important; /* Decrease padding */
+    background-color: #4CAF50 !important; /* Green color for register button */
+    color: #fff !important; /* White text color */
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    border: none !important;
+    border-radius: 3px !important;
+    cursor: pointer;
+}
+.register-text {
+    font-family: "Comic Sans MS", cursive, sans-serif; /* Comic Sans font */
+    color: #ffffff; /* Black color for the text */
+    text-align: center; /* Center align the text */
+    margin-top: 10px; /* Add some top margin */
+}
+
+.register-link {
+    color: rgb(68, 180, 255); /* Blue color for the link */
+    text-decoration: none; /* Remove underline */
+}
+
+.register-link:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.button-container {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.action-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #4CAF50;
+    color: white;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.action-button:hover {
+    background-color: #45a049;
+}
+
+.centered-container {
+    background-color: #292929; /* Slightly different shade of dark mode */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center; /* Center-align text */
+}
+
+h1 {
+    margin-bottom: 20px; /* Add margin to create space below the welcome text */
+}
+
+
+.button-container {
+    margin-top: 20px;
+}
+
+.square-button {
+    padding: 20px;
+    margin: 0 10px;
+    width: 200px; /* Square-shaped buttons */
+    height: 200px; /* Square-shaped buttons */
+    background-color: #4CAF50;
+    color: white;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.square-button:hover {
+    background-color: #45a049;
+}
+.registration-container {
+    background-color: #333; /* Dark background color */
+    color: #fff; /* White text color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* Add padding to the logout button */
+.logout-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.logout-button {
+    padding: 8px 16px;
+    background-color: #4CAF50; /* Green button color */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    background-color: #45a049; /* Darker green color on hover */
+}
+
+/* Maintain the theme for the rest of the page */
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.centered-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Add this to your existing CSS */
+.centered-title {
+    text-align: center;
+    margin-top: 50px; /* Adjust the margin as needed */
+}
+
+.centered-title h1 {
+    font-size: 24px; /* Adjust font size as needed */
+    margin-bottom: 20px; /* Add some space below the title */
+}
+
+/* Modify the width of the containers to 50% */
+.login-container {
+    width: 35%;
+    /* Add other styles as needed */
+}
+
+/* Add media queries to adjust the width on smaller screens */
+@media screen and (max-width: 767px) {
+    .login-container {
+        width: 50%; /* Adjusted to occupy full width on smaller screens */
+    }
+}
+select,
+input[type="file"],
+input[type="date"],
+input[type="checkbox"] {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 8px;
+    font-family: inherit;
+    margin-bottom: 10px; /* Add some margin */
+}
+
+/* Hover style for dropdowns */
+select:hover {
+    background-color: #45a049;
+}
+
+/* Hover style for file input */
+input[type="file"]:hover {
+    background-color: #45a049;
+}
+
+/* Hover style for date entry */
+input[type="date"]:hover {
+    background-color: #45a049;
+}
+
+/* Hover style for checkbox */
+input[type="checkbox"]:hover {
+    background-color: #45a049;
+}
